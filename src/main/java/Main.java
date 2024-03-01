@@ -3,7 +3,6 @@ import javax.swing.JFrame;
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.geom.Rectangle2D;
 
 
 public class Main
@@ -13,7 +12,8 @@ public class Main
     static int ScreenWidth = 800;
     static int ScreenHeight = 450;
 
-    static GraphicsHandles GH =new GraphicsHandles(ScreenWidth, ScreenHeight);
+    static GraphicsHandles GH = new GraphicsHandles(ScreenWidth, ScreenHeight);
+    //static MouseHandler MH = new MouseHandler(GH.frame);
 
     public static void main(String[] args)
     {
@@ -24,11 +24,12 @@ public class Main
     public static void AppStart()
     {
         GH.Setup();
+        Running = true;
     }
 
     public static void AppLoop()
     {
-        while (true)
+        while (Running)
         {
             Input();
             LogicUpdate();
@@ -48,6 +49,6 @@ public class Main
 
     public static void ScreenUpdate()
     {
-        GH.panel.Paint(GH.panel.getGraphics());
+        GH.Paint(GH.frame.getGraphics());
     }
 }
