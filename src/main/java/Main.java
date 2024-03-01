@@ -1,46 +1,53 @@
-import java.awt.Canvas;
-import java.awt.Graphics;
+import java.awt.*;
 import javax.swing.JFrame;
+import javax.swing.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.geom.Rectangle2D;
+
+
 public class Main
 {
 
     static Boolean Running;
+    static int ScreenWidth = 800;
+    static int ScreenHeight = 450;
+
+    static GraphicsHandles GH =new GraphicsHandles(ScreenWidth, ScreenHeight);
 
     public static void main(String[] args)
     {
-        JFrame frame = new JFrame("My Drawing");
-        Canvas canvas = new Canvas();
-        canvas.setSize(800, 500);
-        frame.add(canvas);
-        frame.pack();
-        frame.setVisible(true);
         AppStart();
         AppLoop();
     }
+
     public static void AppStart()
     {
-
+        GH.Setup();
     }
+
     public static void AppLoop()
     {
         while (true)
         {
             Input();
             LogicUpdate();
-            GraphicsUpdate();
+            ScreenUpdate();
         }
     }
+
     public static void Input()
     {
 
     }
+
     public static void LogicUpdate()
     {
 
     }
 
-    public static void GraphicsUpdate()
+    public static void ScreenUpdate()
     {
-
+        GH.panel.Paint(GH.panel.getGraphics());
     }
 }
