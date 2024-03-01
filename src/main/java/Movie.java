@@ -4,13 +4,15 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.io.BufferedReader;
 import java.util.ArrayList;
-public class Movie {
+public class Movie
+{
     public static final String API_KEY = "Your API_KEY";   // TODO --> add your api key about Movie here
     int ImdbVotes;
     ArrayList<String> actorsList;
     String rating;
 
-    public Movie(ArrayList<String> actorsList, String rating, int ImdbVotes){
+    public Movie(ArrayList<String> actorsList, String rating, int ImdbVotes)
+    {
         //TODO --> (Write a proper constructor using the get_from_api functions)
     }
 
@@ -22,7 +24,8 @@ public class Movie {
      * @return a string representation of the MovieData, or null if an error occurred
      */
 
-    public String getMovieData(String title) throws IOException {
+    public String getMovieData(String title) throws IOException
+    {
         URL url = new URL("https://www.omdbapi.com/?t="+title+"&apikey="+API_KEY);
         URLConnection Url = url.openConnection();
         Url.setRequestProperty("Authorization", "Key" + API_KEY);
@@ -36,21 +39,24 @@ public class Movie {
         //handle an error if the chosen movie is not found
         return stringBuilder.toString();
     }
-    public int getImdbVotesViaApi(String moviesInfoJson){
+    public int getImdbVotesViaApi(String moviesInfoJson)
+    {
         //TODO --> (This function must change and return the "ImdbVotes" as an Integer)
         // NOTICE :: you are not permitted to convert this function to return a String instead of an int !!!
         int ImdbVotes = 0;
         return ImdbVotes;
     }
 
-    public String getRatingViaApi(String moviesInfoJson){
+    public String getRatingViaApi(String moviesInfoJson)
+    {
         //TODO --> (This function must return the rating in the "Ratings" part
         // where the source is "Internet Movie Database")  -->
         String rating = "";
         return rating;
     }
 
-    public void getActorListViaApi(String movieInfoJson){
+    public void getActorListViaApi(String movieInfoJson)
+    {
         //TODO --> (This function must return the "Actors" in actorsList)
     }
 }
