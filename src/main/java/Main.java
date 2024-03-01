@@ -39,12 +39,16 @@ public class Main
 
     public static void Input()
     {
-
+        PointerInfo a = MouseInfo.getPointerInfo();
+        Point b = a.getLocation();
+        GH.MouseX = (int) b.getX();
+        GH.MouseY = (int) b.getY();
     }
 
     public static void LogicUpdate()
     {
-
+        System.out.println(GH.MouseX + " - " + GH.MouseY);
+        //System.out.println(GH.clicked);
     }
 
     public static void ScreenUpdate()

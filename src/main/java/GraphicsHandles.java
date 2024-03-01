@@ -12,6 +12,11 @@ public class GraphicsHandles extends JFrame implements MouseListener
 
     int SW;
     int SH;
+
+    int MouseX = 0;
+    int MouseY = 0;
+    boolean clicked = false;
+
     public GraphicsHandles(int ScreenWidth, int ScreenHeight)
     {
         SW = ScreenWidth;
@@ -67,14 +72,16 @@ public class GraphicsHandles extends JFrame implements MouseListener
     }
     public void mouseExited(MouseEvent e)
     {
-        System.out.println("Exited");
+        //System.out.println("Exited");
     }
     public void mousePressed(MouseEvent e)
     {
-        System.out.println("Pressed");
+        //System.out.println("Pressed");
+        clicked = true;
     }
     public void mouseReleased(MouseEvent e)
     {
-        System.out.println("Released");
+        //System.out.println("Released");
+        clicked = false;
     }
 }
