@@ -8,7 +8,7 @@ import java.awt.event.MouseListener;
 
 public class GraphicsHandles extends JFrame implements MouseListener
 {
-    JFrame frame = new JFrame("CS.TA98");
+    JFrame frame = new JFrame("W.H.M.A.H");
 
     int SW;
     int SH;
@@ -54,6 +54,16 @@ public class GraphicsHandles extends JFrame implements MouseListener
 
         g2D.drawRect((SW/2), (SH - 2*RecH), RecW, RecH);
         g2D.drawString("Search Actor", (SW/2 + 20), (SH - 15 - RecH));
+
+        g2D.drawString("Movie Name:", (20), (50));
+        g2D.drawString("The IMBD Score:", (20), (70));
+        g2D.drawString("IMDB Votes:", (20), (90));
+        g2D.drawString("List Of Actors:", (20), (110));
+
+        g2D.drawString("Actor's Name:", (SW/2 + 20), (50));
+        g2D.drawString("NetWorth:", (SW/2 + 20), (70));
+        g2D.drawString("Year of birth:", (SW/2 + 20), (90));
+        g2D.drawString("Year of death:", (SW/2 + 20), (110));
     }
 
     public void Repaint(Graphics g)
@@ -65,6 +75,8 @@ public class GraphicsHandles extends JFrame implements MouseListener
     public void mouseClicked(MouseEvent e)
     {
         System.out.println("Clicked");
+        MouseY = e.getY();
+        MouseX = e.getX();
     }
     public void mouseEntered(MouseEvent e)
     {
