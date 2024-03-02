@@ -9,7 +9,7 @@ public class Movie
     public static final String API_KEY = "5377283d";   // TODO --> add your api key about Movie here
     int ImdbVotes;
     ArrayList<String> actorsList;
-    String rating;
+    String rating = "";
 
     public Movie(ArrayList<String> actorsList, String rating, int ImdbVotes)
     {

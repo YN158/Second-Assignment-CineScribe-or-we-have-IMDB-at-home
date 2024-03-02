@@ -17,10 +17,15 @@ public class GraphicsHandles extends JFrame implements MouseListener
     int MouseY = 0;
     boolean clicked = false;
 
-    public GraphicsHandles(int ScreenWidth, int ScreenHeight)
+    Movie movie;
+    Actors actor;
+
+    public GraphicsHandles(int ScreenWidth, int ScreenHeight, Movie M, Actors A)
     {
         SW = ScreenWidth;
         SH = ScreenHeight;
+        movie = M;
+        actor = A;
     }
 
     public void Setup()
@@ -52,11 +57,18 @@ public class GraphicsHandles extends JFrame implements MouseListener
         g2D.drawRect(0, (SH - 2*RecH), RecW, RecH);
         g2D.drawString("Search Movie", 20, (SH - 15 - RecH));
 
+        g2D.drawRect(0, (SH - 3*RecH), RecW, RecH);
+        g2D.drawString("Enter Movie Name:", 20, (SH - 15 - 2*RecH));
+
         g2D.drawRect((SW/2), (SH - 2*RecH), RecW, RecH);
         g2D.drawString("Search Actor", (SW/2 + 20), (SH - 15 - RecH));
 
+        g2D.drawRect((SW/2), (SH - 3*RecH), RecW, RecH);
+        g2D.drawString("Enter Actor Name:", (SW/2 + 20), (SH - 15 - 2*RecH));
+
         g2D.drawString("Movie Name:", (20), (50));
         g2D.drawString("The IMBD Score:", (20), (70));
+        g2D.drawString(movie.rating, (110), (70));
         g2D.drawString("IMDB Votes:", (20), (90));
         g2D.drawString("List Of Actors:", (20), (110));
 
