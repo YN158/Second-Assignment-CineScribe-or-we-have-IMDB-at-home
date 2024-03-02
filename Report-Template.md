@@ -1,62 +1,44 @@
-# Project Title
+# CineScribe (W.H.M.A.H)
 
-Simple overview of use/purpose.
+Just a simple java application which gives you simple information about a movie and actors.
+(note that simple does not mean "Did not want to rip my eyes out and shove them in James Gosling's throat)
+(also I'm not one to write super serious reports on anything without jokes because there is no fun in that so apologies if you take some assignment way too seriously)
 
 ## Description
 
-An in-depth paragraph about your project and overview of use.
-
-## Getting Started
 
 ### Dependencies
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+* this project was pretty much done only using java's existing libraries but the most notable ones are Java 2D API and Java Swing.
+* also my dwindling sanity
 
 ### Installing
 
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+* Pre-installed
 
 ### Executing program
 
-* How to run the program
-* Step-by-step bullets
-```
-code blocks for commands
-```
+* just run the .jar file in the out\artifacts folder
 
 ## Help
 
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
+this helped me out a lot in the face of Java:
+https://irancrisisline.org
 
 ## Authors
 
 Contributors names and contact info
 
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
-
-## Version History
-
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
+* Yashar Nasisr : @RBlueM on telegram
 
 ## License
 
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
+This project is licensed under the [W.H.M.A.H] License.
+if you use this 100% fr fr licensed application I WILL find you and slap you.
+(it ain't licensed)
 
 ## Acknowledgments
 
-Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
+* A lot of the application structures and main ideas for the graphics and input handling came from my own game engine. So props to me????? I guess???????
+* some really nice guy I asked for help with MouseListeners on discord. thanks autonomousunicorn.
+* Bro Code on YouTube.
