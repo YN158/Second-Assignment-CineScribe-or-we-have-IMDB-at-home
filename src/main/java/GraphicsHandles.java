@@ -73,7 +73,9 @@ public class GraphicsHandles extends JFrame implements MouseListener
         g2D.drawString("List Of Actors:", (20), (110));
 
         g2D.drawString("Actor's Name:", (SW/2 + 20), (50));
+        g2D.drawString(actor.Name, (SW/2 + 110), (50));
         g2D.drawString("NetWorth:", (SW/2 + 20), (70));
+        g2D.drawString(actor.netWorth, (SW/2 + 110), (70));
         g2D.drawString("Year of birth:", (SW/2 + 20), (90));
         g2D.drawString("Year of death:", (SW/2 + 20), (110));
     }
