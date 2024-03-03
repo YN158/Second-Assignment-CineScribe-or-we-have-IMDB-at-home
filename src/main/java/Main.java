@@ -75,7 +75,7 @@ public class Main
         if (GH.clicked && GH.MouseX > ScreenWidth/2 && GH.MouseX < ScreenWidth && GH.MouseY > (ScreenHeight - 80) && GH.MouseY < (ScreenHeight - 40))
         {
             System.out.println("Search Actor Has Been Pressed");
-            actor.getActorData("Robin Williams");
+            actor.getActorData("robin williams");
             System.out.println(actor.netWorth);
             GH.Repaint(GH.frame.getGraphics());
         }

@@ -34,6 +34,7 @@ public class Actors
     public String getActorData(String name)
     {
         Name = name;
+
         try {
             URL url = new URL("https://api.api-ninjas.com/v1/celebrity?name="+
                     name.replace(" ", "+")+"&apikey="+API_KEY);
@@ -77,7 +78,7 @@ public class Actors
                 }
 
                 in.close();
-                return PS;
+                return response.toString();
             }
             else
             {
@@ -90,9 +91,35 @@ public class Actors
             return null;
         }
     }
+
+    public void SetTheValue(String actorsInfoJson)
+    {
+        int NWindex = actorsInfoJson.indexOf("net_worth");
+        int NWindex2 = actorsInfoJson.indexOf(",", NWindex);
+        netWorth = actorsInfoJson.substring(NWindex+12, NWindex2);
+
+        int LSindex = actorsInfoJson.indexOf("is_alive");
+        String PS2 = actorsInfoJson.substring(LSindex+11);
+        if (PS2.equals("t"))
+        {
+            isAlive = true;
+        }
+        else if (PS2.equals("f"))
+        {
+            isAlive = false;
+        }
+
+        if (!isAlive)
+        {
+            int TDindex = actorsInfoJson.indexOf("death");
+            int TDindex2 = actorsInfoJson.indexOf("}", TDindex);
+            DateOfDeath = actorsInfoJson.substring(TDindex+11, TDindex2-1);
+        }
+    }
     public double getNetWorthViaApi(String actorsInfoJson)
     {
         //TODO --> (This function must return the "NetWorth")
+        SetTheValue(actorsInfoJson);
         double result = Double.parseDouble(netWorth);;
         return result;
     }
@@ -100,6 +127,7 @@ public class Actors
     public boolean isAlive(String actorsInfoJson)
     {
         //TODO --> (If your chosen actor is alive it must return true otherwise it must return false)
+        SetTheValue(actorsInfoJson);
         boolean statues = isAlive;
         return statues;
     }
@@ -107,6 +135,7 @@ public class Actors
     public String getDateOfDeathViaApi(String actorsInfoJson)
     {
         //TODO --> (If your chosen actor is deceased it must return the date of death)  -->
+        SetTheValue(actorsInfoJson);
         String date = DateOfDeath;
         return date;
     }
