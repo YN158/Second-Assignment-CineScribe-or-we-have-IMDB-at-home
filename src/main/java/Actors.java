@@ -3,9 +3,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.HttpURLConnection;
+
+
 public class Actors
 {
-    public static final String API_KEY = "Your API_KEY";   // TODO --> add your api key about Actors here
+    public static final String API_KEY = "m1VvjWeAKHsw3K8p7TBv6A==ADa8dFodXrwsZ20Z";   // TODO --> add your api key about Actors here
     String netWorth;
     Boolean isAlive;
 
@@ -27,21 +29,27 @@ public class Actors
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestProperty("X-Api-Key", API_KEY);
             System.out.println(connection);
-            if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+            if (connection.getResponseCode() == HttpURLConnection.HTTP_OK)
+            {
                 BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
                 String inputLine;
                 StringBuilder response = new StringBuilder();
 
-                while ((inputLine = in.readLine()) != null) {
+                while ((inputLine = in.readLine()) != null)
+                {
                     response.append(inputLine);
                 }
 
                 in.close();
                 return response.toString();
-            } else {
+            }
+            else
+            {
                 return "Error: " + connection.getResponseCode() + " " + connection.getResponseMessage();
             }
-        } catch (IOException e) {
+        }
+        catch (IOException e)
+        {
             e.printStackTrace();
             return null;
         }

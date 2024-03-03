@@ -4,6 +4,8 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.io.BufferedReader;
 import java.util.ArrayList;
+
+
 public class Movie
 {
     public static final String API_KEY = "5377283d";   // TODO --> add your api key about Movie here
