@@ -86,7 +86,7 @@ public class Actors
     {
         //TODO --> (This function must return the "NetWorth")
 
-        double result = Double.parseDouble(netWorth);;
+        double result = Double.valueOf(netWorth);
         return result;
     }
 
