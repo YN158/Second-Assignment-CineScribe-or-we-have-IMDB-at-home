@@ -32,7 +32,7 @@ public class GraphicsHandles extends JFrame implements MouseListener
     {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(SW, SH);
-        frame.setLocationRelativeTo(null);
+        //frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         frame.addMouseListener(this);
     }

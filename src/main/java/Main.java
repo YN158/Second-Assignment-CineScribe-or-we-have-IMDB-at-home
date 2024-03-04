@@ -76,7 +76,6 @@ public class Main
         {
             System.out.println("Search Actor Has Been Pressed");
             actor.getActorData("robin williams");
-            System.out.println(actor.netWorth);
             GH.Repaint(GH.frame.getGraphics());
         }
         if (GH.clicked && GH.MouseX > 0 && GH.MouseX < ScreenWidth/2 && GH.MouseY > (ScreenHeight - 120) && GH.MouseY < (ScreenHeight - 80) )

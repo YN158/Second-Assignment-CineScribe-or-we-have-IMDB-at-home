@@ -18,8 +18,10 @@ public class Actors
     String Name = "";
     String DateOfDeath = "";
 
-    private String PS;
+    ObjectMapper mapper = new ObjectMapper();
+    JsonNode Jnode;
 
+    String PS;
 
     public Actors(String netWorth, boolean isAlive)
     {
@@ -51,30 +53,17 @@ public class Actors
                 while ((inputLine = in.readLine()) != null)
                 {
                     response.append(inputLine);
-                    System.out.println(inputLine);
-                    PS = inputLine.toString();
                 }
 
-                int NWindex = PS.indexOf("net_worth");
-                int NWindex2 = PS.indexOf(",", NWindex);
-                netWorth = PS.substring(NWindex+12, NWindex2);
-
-                int LSindex = PS.indexOf("is_alive");
-                String PS2 = PS.substring(LSindex+11);
-                if (PS2.equals("t"))
-                {
-                    isAlive = true;
-                }
-                else if (PS2.equals("f"))
-                {
-                    isAlive = false;
-                }
+                PS = response.toString().substring(1, response.toString().length()-1);
+                Jnode = mapper.readTree(PS);
+                netWorth = Jnode.path("net_worth").asText();
+                isAlive = Jnode.path("is_alive").asBoolean();
+                System.out.println(response);
 
                 if (!isAlive)
                 {
-                    int TDindex = PS.indexOf("death");
-                    int TDindex2 = PS.indexOf("}", TDindex);
-                    DateOfDeath = PS.substring(TDindex+11, TDindex2-1);
+                    DateOfDeath = Jnode.path("death").asText();
                 }
 
                 in.close();
@@ -92,34 +81,11 @@ public class Actors
         }
     }
 
-    public void SetTheValue(String actorsInfoJson)
-    {
-        int NWindex = actorsInfoJson.indexOf("net_worth");
-        int NWindex2 = actorsInfoJson.indexOf(",", NWindex);
-        netWorth = actorsInfoJson.substring(NWindex+12, NWindex2);
 
-        int LSindex = actorsInfoJson.indexOf("is_alive");
-        String PS2 = actorsInfoJson.substring(LSindex+11);
-        if (PS2.equals("t"))
-        {
-            isAlive = true;
-        }
-        else if (PS2.equals("f"))
-        {
-            isAlive = false;
-        }
-
-        if (!isAlive)
-        {
-            int TDindex = actorsInfoJson.indexOf("death");
-            int TDindex2 = actorsInfoJson.indexOf("}", TDindex);
-            DateOfDeath = actorsInfoJson.substring(TDindex+11, TDindex2-1);
-        }
-    }
     public double getNetWorthViaApi(String actorsInfoJson)
     {
         //TODO --> (This function must return the "NetWorth")
-        SetTheValue(actorsInfoJson);
+
         double result = Double.parseDouble(netWorth);;
         return result;
     }
@@ -127,7 +93,7 @@ public class Actors
     public boolean isAlive(String actorsInfoJson)
     {
         //TODO --> (If your chosen actor is alive it must return true otherwise it must return false)
-        SetTheValue(actorsInfoJson);
+
         boolean statues = isAlive;
         return statues;
     }
@@ -135,7 +101,7 @@ public class Actors
     public String getDateOfDeathViaApi(String actorsInfoJson)
     {
         //TODO --> (If your chosen actor is deceased it must return the date of death)  -->
-        SetTheValue(actorsInfoJson);
+
         String date = DateOfDeath;
         return date;
     }
